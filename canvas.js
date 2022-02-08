@@ -4,10 +4,13 @@ const pincel = tablero.getContext("2d");
 
 var posX = 200;
 var posY = 700;
+var posXletraInc=600;
+var posYletraInc=300;
 pincel.lineWidth = 15;
 pincel.lineCap = 'round';
 pincel.lineJoin = "round";
 pincel.strokeStyle = "Black";
+var letrasPresionadas=[];
 
 
 //funcion crear tablero
@@ -164,13 +167,10 @@ function dibujarBrazoDerecho(x, y) {
     pincel.stroke();
 }
 function dibujarGuiones(cantGuiones){
-    console.log(cantGuiones);
+   
     let posXguion=400;
     let posYguion=700;
     for (let i=1;i<=cantGuiones;i++){
-        console.log(i);
-        console.log(posXguion, posYguion);
-        
         pincel.strokeStyle = "Black";
 
         
@@ -181,7 +181,52 @@ function dibujarGuiones(cantGuiones){
         pincel.lineTo(posXguion+=50, posYguion);
         /* pincel.closePath(); */
         pincel.stroke();
-        console.log(posXguion, posYguion);
+       
         posXguion+=30;
     }
+}
+function dibujarLetraCorrecta(letra,indice,strlength){
+    
+    
+    let posXletra=400;
+    let posYletra=675;
+
+    
+        for(i=1;i<=strlength;i++){
+       
+        if (indice == i){
+
+         pincel.font="50px Georgia";
+        pincel.fillStyle="black";  
+        pincel.fillText(letra,posXletra,posYletra);
+
+        return;
+        }
+        posXletra+=82;
+    }
+    
+
+
+}
+function dibujarLetraIncorrecta(letra){
+    
+
+ 
+
+        if(!letrasPresionadas.includes(letra)){
+            pincel.font="50px Georgia";
+        pincel.fillStyle="black";  
+        pincel.fillText(letra,posXletraInc,posYletraInc);
+        posXletraInc+=50;
+        console.log("LETRA PULSADA:"+ letra);
+        console.log(posXletraInc);
+        if(posXletraInc>1100){
+            posXletraInc=600;
+            posYletraInc+=100;
+        }
+        }
+        letrasPresionadas.push(letra);
+    
+
+
 }
