@@ -16,9 +16,8 @@ botonAgregarPalabras.addEventListener("click", (event) => {
     var inputPalabraNueva = document.querySelector("#input-nueva-palabra");
     var nuevaPalabra = inputPalabraNueva.value;
     if (validarPalabraEnMayusculas(nuevaPalabra)) {
-        console.log(nuevaPalabra);
+        
         palabrasSecretas.push(nuevaPalabra);
-        console.log(palabrasSecretas);
 
     }
 
