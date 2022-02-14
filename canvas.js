@@ -12,6 +12,11 @@ pincel.lineJoin = "round";
 pincel.strokeStyle = "Black";
 var letrasPresionadas=[];
 
+function reiniciarPosicionLetrasIncorrectas (){
+     posXletraInc=600;
+     posYletraInc=300;
+}
+
 
 //funcion crear tablero
 function dibujarTablero() {
@@ -192,7 +197,7 @@ function dibujarLetraCorrecta(letra,indice,strlength){
     let posYletra=675;
 
     
-        for(i=1;i<=strlength;i++){
+        for(i=0;i<strlength;i++){
        
         if (indice == i){
 
@@ -213,7 +218,7 @@ function dibujarLetraIncorrecta(letra){
 
  
 
-        if(!letrasPresionadas.includes(letra)){
+        
             pincel.font="50px Georgia";
         pincel.fillStyle="black";  
         pincel.fillText(letra,posXletraInc,posYletraInc);
@@ -224,9 +229,26 @@ function dibujarLetraIncorrecta(letra){
             posXletraInc=600;
             posYletraInc+=100;
         }
-        }
-        letrasPresionadas.push(letra);
+        
+        
     
 
 
+}
+function dibujarFinDelJuego(){
+    pincel.font="50px Georgia";
+    pincel.fillStyle="red";  
+    pincel.fillText("Fin del juego!",600,200);
+}
+function dibujarGanastes(){
+    
+
+    
+    pincel.font="50px Georgia";
+    pincel.fillStyle="green";  
+    pincel.fillText("Ganastes, Felicidades!",600,200);
+    
+    
+    
+    
 }
