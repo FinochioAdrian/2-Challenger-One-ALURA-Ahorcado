@@ -27,3 +27,40 @@
   margin-left: auto;
   margin-right: auto;
 }
+.mensaje-error{
+  border-radius: 15px;
+  visibility: visible;
+  font-size: 18px;
+  text-align: center;
+  position: absolute;
+  background-color: #e9a12f;
+  left: 65%;
+  margin-top: 5px;
+  width: 160px;
+  padding: 10px;
+  color: white;
+  -webkit-border-radius:15px;
+  
+  -ms-border-radius:15px;
+  -o-border-radius:15px;
+
+}
+.mensaje-error::after{
+  right:100%;
+  top: 25%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-right-color: #e9a12f;
+  border-width: 8px;
+  margin-top: 8px;
+
+}
+
+.hidden {
+  display: none;
+}

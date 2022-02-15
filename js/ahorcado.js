@@ -1,28 +1,10 @@
 // Inicialiazando el juego
-var intento;
-var palabraSecreta;
-var palabraSecretaArray;
+var intento,palabraSecreta,palabraSecretaArray,aciertos;
 var botonJugar = document.querySelector("#iniciar-juego");
 var palabrasSecretas = ['ALURA', 'ORACLE', 'JAVASCRIPT', 'FUNCION', 'ARREGLO', 'CICLO', 'CASA', 'COLEGIO', 'ESTUDIOS', 'FUTBOL', 'VACACIONES', 'DEPORTES', 'AMIGOS', 'FAMILIA']
 var body = document.querySelector("body");
 var letrasPresionadas = [];
-var aciertos;
-var botonAgregarPalabras = document.querySelector("#nueva-palabra");
 
-
-botonAgregarPalabras.addEventListener("click", (event) => {
-
-    event.preventDefault();
-    var inputPalabraNueva = document.querySelector("#input-nueva-palabra");
-    var nuevaPalabra = inputPalabraNueva.value;
-    if (validarPalabraEnMayusculas(nuevaPalabra)) {
-        
-        palabrasSecretas.push(nuevaPalabra);
-
-    }
-
-
-})
 botonJugar.addEventListener("click", function (event) {
 
     event.preventDefault();
@@ -126,4 +108,12 @@ function validarPalabraEnMayusculas(palabra) {
     });
     
     return estado;
+}
+
+function insertarPalabrasSecretas(insertarStrg){
+    palabrasSecretas.push(insertarStrg);
+    
+}
+function getPalabrasSecretas(){
+    return palabrasSecretas;
 }
