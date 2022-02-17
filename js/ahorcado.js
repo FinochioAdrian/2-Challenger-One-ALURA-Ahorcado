@@ -1,7 +1,7 @@
 // Inicialiazando el juego
-var intento,palabraSecreta,palabraSecretaArray,aciertos;
+var intento, palabraSecreta, palabraSecretaArray, aciertos;
 var botonJugar = document.querySelector("#iniciar-juego");
-var palabrasSecretas = ['ALURA', 'ORACLE', 'JAVASCRIPT', 'FUNCION', 'ARREGLO', 'CICLO', 'CASA', 'COLEGIO', 'ESTUDIOS', 'FUTBOL', 'VACACIONES', 'DEPORTES', 'AMIGOS', 'FAMILIA']
+var palabrasSecretas = getLocalStorage("palabrasSecretas");
 var body = document.querySelector("body");
 var letrasPresionadas = [];
 
@@ -99,21 +99,18 @@ function ganastes(aciertos, str) {
 function validarPalabraEnMayusculas(palabra) {
     let arrayPalabraInsertada = palabra.split("");
     let estado = true;
-    
+
     arrayPalabraInsertada.forEach(element => {
         let letra = validarLetraMayuscula(element)
         if (!letra) {
             estado = false;
         }
     });
-    
+
     return estado;
 }
 
-function insertarPalabrasSecretas(insertarStrg){
-    palabrasSecretas.push(insertarStrg);
-    
-}
-function getPalabrasSecretas(){
-    return palabrasSecretas;
+function insertarPalabrasSecretas(insertarStrg) {
+    setLocalStorage(insertarStrg);
+
 }

@@ -1,7 +1,5 @@
-
-
 var botonAgregarPalabras = document.querySelector("#nueva-palabra");
-var spanError=document.querySelector("#span-error");
+var spanError = document.querySelector("#span-error");
 
 
 botonAgregarPalabras.addEventListener("click", (event) => {
@@ -10,27 +8,29 @@ botonAgregarPalabras.addEventListener("click", (event) => {
     var inputPalabraNueva = document.querySelector("#input-nueva-palabra");
     var nuevaPalabra = inputPalabraNueva.value;
     if (validarPalabraEnMayusculas(nuevaPalabra)) {
-        
-        
-        insertarPalabrasSecretas(nuevaPalabra);
-        console.log(getPalabrasSecretas());
 
-    }else{
+
+        insertarPalabrasSecretas(nuevaPalabra);
+        inputPalabraNueva.value = "";
+
+
+    } else {
         mostrarMensajeError();
-        setTimeout(ocultarMensajeError,3000)
+        setTimeout(ocultarMensajeError, 3000)
     }
 
 
 
 })
 
-function mostrarMensajeError(){
+function mostrarMensajeError() {
 
 
-spanError.className="mensaje-error";
+    spanError.className = "mensaje-error";
 
 
 }
-function ocultarMensajeError(){
-    spanError.className="hidden";
-    }
+
+function ocultarMensajeError() {
+    spanError.className = "hidden";
+}

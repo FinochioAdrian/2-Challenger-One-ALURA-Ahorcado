@@ -4,27 +4,27 @@ const pincel = tablero.getContext("2d");
 
 var posX = 200;
 var posY = 700;
-var posXletraInc=600;
-var posYletraInc=300;
+var posXletraInc = 600;
+var posYletraInc = 300;
 pincel.lineWidth = 15;
 pincel.lineCap = 'round';
 pincel.lineJoin = "round";
 pincel.strokeStyle = "Black";
-var letrasPresionadas=[];
+var letrasPresionadas = [];
 
-function reiniciarPosicionLetrasIncorrectas (){
-     posXletraInc=600;
-     posYletraInc=300;
+function reiniciarPosicionLetrasIncorrectas() {
+    posXletraInc = 600;
+    posYletraInc = 300;
 }
 
 
 //funcion crear tablero
 function dibujarTablero() {
-    pincel.fillStyle = "#bcebeb";
+    pincel.fillStyle = "#EEEE";
     pincel.fillRect(0, 0, 1200, 800);
     dibujarBaseHorca(posX, posY);
-    
-    
+
+
 }
 
 function dibujarAhorcado(intento) {
@@ -56,9 +56,9 @@ function dibujarAhorcado(intento) {
     if (intento == 9) {
         dibujarBrazoDerecho(posX, posY);
     }
-    
-    
-    
+
+
+
 
 
 }
@@ -98,7 +98,7 @@ function dibujarHorcaHorizontal(x, y) {
 function dibujarHorcaSoga(x, y) {
     x += 300;
     y -= 550;
-    
+
 
     pincel.beginPath();
     pincel.moveTo(x, y);
@@ -171,84 +171,89 @@ function dibujarBrazoDerecho(x, y) {
     pincel.lineTo(x + 75, y - 100);
     pincel.stroke();
 }
-function dibujarGuiones(cantGuiones){
-   
-    let posXguion=400;
-    let posYguion=700;
-    for (let i=1;i<=cantGuiones;i++){
+
+function dibujarGuiones(cantGuiones) {
+
+    let posXguion = 400;
+    let posYguion = 700;
+    for (let i = 1; i <= cantGuiones; i++) {
         pincel.strokeStyle = "Black";
 
-        
+
         pincel.beginPath();
         pincel.moveTo(posXguion, posYguion);
 
-        
-        pincel.lineTo(posXguion+=50, posYguion);
+
+        pincel.lineTo(posXguion += 50, posYguion);
         /* pincel.closePath(); */
         pincel.stroke();
-       
-        posXguion+=30;
+
+        posXguion += 30;
     }
 }
-function dibujarLetraCorrecta(letra,indice,strlength){
-    
-    
-    let posXletra=400;
-    let posYletra=675;
 
-    
-        for(i=0;i<strlength;i++){
-       
-        if (indice == i){
+function dibujarLetraCorrecta(letra, indice, strlength) {
 
-         pincel.font="50px Georgia";
-        pincel.fillStyle="black";  
-        pincel.fillText(letra,posXletra,posYletra);
 
-        return;
+    let posXletra = 400;
+    let posYletra = 675;
+
+
+    for (i = 0; i < strlength; i++) {
+
+        if (indice == i) {
+
+            pincel.font = "50px Georgia";
+            pincel.fillStyle = "black";
+            pincel.fillText(letra, posXletra, posYletra);
+
+            return;
         }
-        posXletra+=82;
+        posXletra += 82;
     }
-    
 
-
-}
-function dibujarLetraIncorrecta(letra){
-    
-
- 
-
-        
-            pincel.font="50px Georgia";
-        pincel.fillStyle="black";  
-        pincel.fillText(letra,posXletraInc,posYletraInc);
-        posXletraInc+=50;
-        console.log("LETRA PULSADA:"+ letra);
-        console.log(posXletraInc);
-        if(posXletraInc>1100){
-            posXletraInc=600;
-            posYletraInc+=100;
-        }
-        
-        
-    
 
 
 }
-function dibujarFinDelJuego(){
-    pincel.font="50px Georgia";
-    pincel.fillStyle="red";  
-    pincel.fillText("Fin del juego!",600,200);
-}
-function dibujarGanastes(){
-    
 
-    
-    pincel.font="50px Georgia";
-    pincel.fillStyle="green";  
-    pincel.fillText("Ganastes, Felicidades!",600,200);
-    
-    
-    
-    
+function dibujarLetraIncorrecta(letra) {
+
+
+
+
+
+    pincel.font = "50px Georgia";
+    pincel.fillStyle = "black";
+    pincel.fillText(letra, posXletraInc, posYletraInc);
+    posXletraInc += 50;
+    console.log("LETRA PULSADA:" + letra);
+    console.log(posXletraInc);
+    if (posXletraInc > 1100) {
+        posXletraInc = 600;
+        posYletraInc += 100;
+    }
+
+
+
+
+
+}
+
+function dibujarFinDelJuego() {
+    pincel.font = "50px Georgia";
+    pincel.fillStyle = "red";
+    pincel.fillText("Fin del juego!", 600, 200);
+}
+
+function dibujarGanastes() {
+
+
+
+    pincel.font = "50px Georgia";
+    pincel.fillStyle = "green";
+    pincel.fillText("Ganastes, Felicidades!", 600, 200);
+
+
+
+
 }
