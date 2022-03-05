@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ahorcado</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+
   </head>
-  
-  <body>
-    <div style="text-align:center; margin: 50px 0px;">
+  <header>
+    <nav>
+      <img class="logo" src="img/logo.jpg" alt="logo">
       <h1 class="titulo">Ahorcado</h1>
+    </nav>
+    
+  </header>
+  <body>
+
+    <div class="contenedor" style="">
+
+      
       <button class="btn" id="iniciar-juego">INICIAR JUEGO</button>
+
     </div>
     
     
     <div style="text-align:center">
+
+      <span id="span-error" class="hidden">Debe de ingresar solo palabras en Mayúsculas</span>
+
       <input class="text-input" type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
       <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
+
     </div>
     
     
     <div style="text-align:center;">
+
       <canvas id="ahorcado" height="800px" width="1200px"></canvas>
+
     </div>
-    <script type="text/javascript" src="canvas.js"></script>
-    <script type="text/javascript" src="ahorcado.js"></script>
+
+    <script type="text/javascript" src="js/palabrasSecretas.js"></script>
+    <script type="text/javascript" src="js/ahorcado.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/añadirNuevasPalabras.js"></script>
+
   </body>
 </html>
