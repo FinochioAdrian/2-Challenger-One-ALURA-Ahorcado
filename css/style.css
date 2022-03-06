@@ -2,7 +2,7 @@
 header {
   display: flex;
   padding: 2rem;
-  background-color: #e9a12f;
+  background-color: #e9eed1;
 
 
 }
@@ -20,7 +20,10 @@ nav {
    padding: 15px;
   width: 30vw;
   margin: auto;
-  font-size: xx-large;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5rem;
+  font-weight:  400;
+ 
 
 }
 .contenedor{
@@ -86,4 +89,46 @@ nav {
 
 .hidden {
   display: none;
+ 
+}
+
+.espaciojuego{
+  
+  text-align: center;
+}
+canvas{
+  background-image: url(../img/fondo/fondo_madera.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+footer {
+  
+  margin: 2em 0 0 0;
+  width: 100%;
+  text-align: center;
+  background: url("../img/footer/bg.jpg");
+
+}
+.footer_container{
+  display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    padding: 2rem;
+    align-items: center;
+}
+
+.footer__imagen{
+  width: 15%;
+  border-radius: 100%;
+}
+
+.footer__by {
+  color: #FFFFFF;
+  font-size: 1em;
+}
+
+.footer__link{
+  color: rgb(72, 158, 233);
+  
 }

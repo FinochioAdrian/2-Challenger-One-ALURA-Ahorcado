@@ -9,8 +9,11 @@ var posYletraInc = 300;
 pincel.lineWidth = 15;
 pincel.lineCap = 'round';
 pincel.lineJoin = "round";
-pincel.strokeStyle = "Black";
+var colorMadera="#dbb87b";
+
 var letrasPresionadas = [];
+
+
 
 function reiniciarPosicionLetrasIncorrectas() {
     posXletraInc = 600;
@@ -20,8 +23,9 @@ function reiniciarPosicionLetrasIncorrectas() {
 
 //funcion crear tablero
 function dibujarTablero() {
-    pincel.fillStyle = "#EEEE";
-    pincel.fillRect(0, 0, 1200, 800);
+    pincel.fillStyle = "rgba(0,0,0,0)";
+    pincel.clearRect(0, 0, 1200, 800);
+    pincel.fillRect(0, 0, 1200, 800);  
     dibujarBaseHorca(posX, posY);
 
 
@@ -29,6 +33,12 @@ function dibujarTablero() {
 
 function dibujarAhorcado(intento) {
 
+    if(intento<=3){
+        pincel.strokeStyle = colorMadera;
+    }else{
+        pincel.strokeStyle ="white";
+    }
+   
     if (intento == 1) {
         dibujarHorcaVertical(posX, posY);
     } else
@@ -64,7 +74,7 @@ function dibujarAhorcado(intento) {
 }
 
 function dibujarBaseHorca(x, y) {
-    pincel.strokeStyle = "Black"
+    pincel.strokeStyle = colorMadera;
     pincel.beginPath();
     pincel.moveTo(x, y);
 
@@ -77,8 +87,9 @@ function dibujarBaseHorca(x, y) {
 }
 
 function dibujarHorcaVertical(x, y) {
-
+    
     pincel.beginPath();
+    
     pincel.moveTo(x, y);
 
     pincel.lineTo(x, y - 550);
@@ -204,7 +215,8 @@ function dibujarLetraCorrecta(letra, indice, strlength) {
         if (indice == i) {
 
             pincel.font = "50px Georgia";
-            pincel.fillStyle = "black";
+            pincel.fillStyle = "#e9eed1";
+            
             pincel.fillText(letra, posXletra, posYletra);
 
             return;
@@ -223,7 +235,7 @@ function dibujarLetraIncorrecta(letra) {
 
 
     pincel.font = "50px Georgia";
-    pincel.fillStyle = "black";
+    pincel.fillStyle = "#e9eed1";
     pincel.fillText(letra, posXletraInc, posYletraInc);
     posXletraInc += 50;
     console.log("LETRA PULSADA:" + letra);
@@ -250,10 +262,11 @@ function dibujarGanastes() {
 
 
     pincel.font = "50px Georgia";
-    pincel.fillStyle = "green";
+    pincel.fillStyle = "greenyellow";
     pincel.fillText("Ganastes, Felicidades!", 600, 200);
 
 
 
 
 }
+
