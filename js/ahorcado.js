@@ -1,7 +1,8 @@
 // Inicialiazando el juego
-var intento, palabraSecreta, palabraSecretaArray, aciertos;
+var intento, palabraSecreta, palabraSecretaArray, aciertos, espaciojuego;
 var botonJugar = document.querySelector("#iniciar-juego");
 var palabrasSecretas = getLocalStorage("palabrasSecretas");
+espaciojuego=document.querySelector(".espaciojuego");
 var body = document.querySelector("body");
 var letrasPresionadas = [];
 
@@ -13,6 +14,8 @@ botonJugar.addEventListener("click", function (event) {
     palabraSecreta = crearPalabraSecreta(palabrasSecretas);
     letrasPresionadas.length = 0;
     console.log(palabraSecreta);
+    espaciojuego.classList.remove("hidden");
+    
     dibujarTablero();
     dibujarGuiones(palabraSecreta.length);
     palabraSecretaArray = palabraSecreta.split("");
@@ -114,3 +117,4 @@ function insertarPalabrasSecretas(insertarStrg) {
     setLocalStorage(insertarStrg);
 
 }
+
