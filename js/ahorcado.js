@@ -1,9 +1,9 @@
 // Inicialiazando el juego
-var intento, palabraSecreta, palabraSecretaArray, aciertos, espaciojuego;
+var intento, palabraSecreta, palabraSecretaArray, aciertos;
 var botonJugar = document.querySelector("#iniciar-juego");
 var palabrasSecretas = getLocalStorage("palabrasSecretas");
-espaciojuego=document.querySelector(".espaciojuego");
 var body = document.querySelector("body");
+var espaciojuego=document.querySelector(".espaciojuego");
 var letrasPresionadas = [];
 
 botonJugar.addEventListener("click", function (event) {
@@ -15,7 +15,6 @@ botonJugar.addEventListener("click", function (event) {
     letrasPresionadas.length = 0;
     console.log(palabraSecreta);
     espaciojuego.classList.remove("hidden");
-    
     dibujarTablero();
     dibujarGuiones(palabraSecreta.length);
     palabraSecretaArray = palabraSecreta.split("");
@@ -70,17 +69,18 @@ function evaluarEntradaTeclado(event) {
 
                     dibujarLetraIncorrecta(keys);
                     letrasPresionadas.push(keys);
+                    if (finDelJuego(intento)) {
+                        dibujarFinDelJuego();
+                
+                    }
 
 
                 }
 
 
             }
-        };
-    } else if (finDelJuego(intento)) {
-        dibujarFinDelJuego();
-
-    }
+        }
+    } 
 
 }
 

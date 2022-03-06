@@ -24,8 +24,8 @@ function reiniciarPosicionLetrasIncorrectas() {
 //funcion crear tablero
 function dibujarTablero() {
     pincel.fillStyle = "rgba(0,0,0,0)";
-    pincel.fillRect(0, 0, 1200, 800);
-   
+    pincel.clearRect(0, 0, 1200, 800);
+    pincel.fillRect(0, 0, 1200, 800);  
     dibujarBaseHorca(posX, posY);
 
 
